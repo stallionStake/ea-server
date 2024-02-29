@@ -1,0 +1,12 @@
+name: SportsDataIO External Adapter
+description: An external adapter to get the sports data
+node_identifier: sportsdataio_cl_ea
+platforms:
+  - Docker
+  - AWS Lambda
+  - GCP Functions
+data_sources:
+  - name: SportsDataIO
+    url: https://sportsdata.io/
+parameters:
+  - date
