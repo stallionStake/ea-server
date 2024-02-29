@@ -35,7 +35,6 @@ const createRequest = (input, callback) => {
     url,
     params
   }
-
   // The Requester allows API calls be retry in case of timeout
   // or connection failure
   Requester.request(config, customError)
@@ -43,13 +42,21 @@ const createRequest = (input, callback) => {
       // It's common practice to store the desired value at the top-level
       // result key. This allows different adapters to be compatible with
       // one another.
-      //console.log(response.data);
+      response.data = filterResponse(response.data);
+      console.log(response.data);
       //response.data.result = Requester.validateResultNumber(response.data, ['StatID'])
       callback(response.status, Requester.success(jobRunID, response))
     })
     .catch(error => {
       callback(500, Requester.errored(jobRunID, error))
     })
+}
+
+function filterResponse(arr) {
+  return arr.map(obj => ({
+      PlayerID: obj.PlayerID,
+      FantasyPointsDraftKings: obj.FantasyPointsDraftKings
+  }));
 }
 
 // This is a wrapper to allow the function to work with
