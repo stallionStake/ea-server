@@ -55,7 +55,7 @@ const createRequest = (input, callback) => {
 function filterResponse(arr) {
   return arr.map(obj => ({
       PlayerID: obj.PlayerID,
-      FantasyPointsDraftKings: obj.FantasyPointsDraftKings
+      score: obj.FantasyPointsDraftKings * 10
   }));
 }
 
