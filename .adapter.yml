@@ -7,6 +7,9 @@ platforms:
   - GCP Functions
 data_sources:
   - name: SportsDataIO
-    url: https://sportsdata.io/
+  - url: https://sportsdata.io/
 parameters:
   - date
+outputs:
+  - playerID
+  - score (FantasyPointsDraftKings)
