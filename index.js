@@ -25,8 +25,8 @@ const createRequest = (input, callback) => {
   
   const q = validator.validated.data.date
   const url = `https://api.sportsdata.io/v3/nba/projections/json/${endpoint}/${q}`
-  //const key = process.env.API_KEY;
-  const key = "fb251630b8f7455aa4d220ea3494b777";
+  const key = process.env.API_KEY;
+
   const params = {
     key
   }
@@ -56,7 +56,7 @@ function filterResponse(arr) {
   return arr.map(obj => ({
       PlayerID: obj.PlayerID,
       score: obj.FantasyPointsDraftKings * 10
-  })).slice(0, 1);
+  })).slice(0, 20);
 }
 
 // function filterResponse(arr) {
